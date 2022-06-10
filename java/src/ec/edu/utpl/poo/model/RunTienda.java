@@ -5,7 +5,7 @@ public class RunTienda {
 
 
         Tienda T1 = new Tienda();
-        System.out.println(T1.getCantidad());
+        System.out.println("Maximo de Productos:"+T1.maximoProductos);
         T1.imprimir();
         T1.agregarProductos("Moto",3,200);
         T1.imprimir();

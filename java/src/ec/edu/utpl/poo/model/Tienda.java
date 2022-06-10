@@ -1,28 +1,28 @@
 package ec.edu.utpl.poo.model;
 
 public class Tienda {
- protected  int contador;
- private String articulo;
- private int cantidad;
- private double precio;
+
+ protected  int contador;  //Atributo de clase
+ private String articulo;  //Atributo de instancia
+ private int cantidad;     //Atributo de instancia
+ private double precio;    //Atributo de instancia
  private static String cadena="";
- private static int maximoProductos=10;
+ public int maximoProductos=10; //Atributo de clase
 
  public Tienda (){
   this.articulo=null;
   this.cantidad=0;
   this.precio=0;
   contador=0;
-
  }
 
  public Tienda(String articulo, int cantidad, double precio) {
   if (validarCantidad(cantidad)==true&&validarPrecio(precio)==true){
-   this.setArticulo(articulo);
+   this.articulo=articulo;
    this.setCantidad(cantidad);
    this.setPrecio(precio);
    contador=1;
-   cadena = String.format("%s%s\t\t\t%d\t\t%.2f\n",cadena, this.getArticulo(),getCantidad(),getPrecio());
+   cadena = String.format("%s%s\t\t\t%d\t\t%.2f\n",cadena, this.articulo,getCantidad(),getPrecio());
   }else{
    throw new IllegalArgumentException("Cantidad o precio no aptos");
   }
@@ -43,13 +43,8 @@ public class Tienda {
  public void setPrecio(double precio) {
   this.precio = precio;
  }
- public String getArticulo() {
-  return articulo;
- }
 
- public void setArticulo(String articulo) {
-  this.articulo = articulo;
- }
+
  private boolean validarCantidad(int cantidad ) {
   if (cantidad >= 0 && cantidad <= maximoProductos) {
    return true;
@@ -69,11 +64,11 @@ public class Tienda {
 
  public void agregarProductos (String articulo, int cantidad,double precio){
   if (validarCantidad(cantidad)==true&&validarPrecio(precio)==true){
-   this.setArticulo(articulo);
+   this.articulo=articulo;
    this.setCantidad(cantidad);
    this.setPrecio(precio);
    contador=contador+1;
-   cadena = String.format("%s%s\t\t\t%d\t\t%.2f\n",cadena, this.getArticulo(),getCantidad(),getPrecio());
+   cadena = String.format("%s%s\t\t\t%d\t\t%.2f\n",cadena, this.articulo,getCantidad(),getPrecio());
   }else{
    throw new IllegalArgumentException("Cantidad o precio no aptos");
   }
